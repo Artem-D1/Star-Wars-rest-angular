@@ -1,0 +1,65 @@
+<div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom menu">
+    <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+      <a class="me-3 py-2 text-decoration-none menu_link" routerLink="/">Planets List</a>
+    </nav>
+</div>
+<h1 class="page_title">Star Wars Planet Info</h1>
+<div class="card">
+    <div class="card-header">
+        <h3 class="text_title">{{planet.name}}</h3>
+    </div>
+    <div class="card-body">
+        <blockquote class="blockquote mb-0">
+            <h5 class="text_title">Population: {{planet.population}}</h5>
+            <p class="text_title">
+                <b><i>Climate: </i></b> {{planet.climate}}<br>
+                <b><i>Terrain: </i></b> {{planet.terrain}}<br>
+                <b><i>Surface water: </i></b> {{planet.surface_water}}<br>
+            </p>
+            <br>
+            <footer>
+                <p class="blockquote-footer"><b>Rotation period: </b> <i>{{planet.rotation_period}}</i></p>
+                <p class="blockquote-footer"><b>Orbital period: </b> <i>{{planet.orbital_period}}</i></p>
+                <p class="blockquote-footer"><b>Diameter: </b> <i>{{planet.diameter}}</i></p>
+            </footer>
+        </blockquote>
+        <h4 class="text_title castom_decorate_title"><i>Residents</i></h4>
+        <select id="selectID" [(ngModel)]="search">
+            <option value="">all</option>
+            <option value="male">male</option>
+            <option value="female">female</option>
+            <option value="n/a">n/a</option>
+            <option value="hermaphrodite">hermaphrodite</option>
+        </select>
+        <div class="card_conatiner">
+            <div class="card" style="width: 14rem;" *ngFor="let resident of residents | myfilter:search">
+                <div class="card-body">
+                    <h5 class="card-title text_title">{{resident.name}}</h5>
+                    <p class="card-text text_title">
+                        <b><i>Gender: </i></b>{{resident.gender}}<br>
+                        <b><i>Birth year: </i></b>{{resident.birth_year}}
+                    </p>
+                    <p class="card-text text-muted">
+                        <b>Height:</b> {{resident.height}}<br/> 
+                        <b>Mass:</b> {{resident.mass}}<br>
+                        <b>Hair color:</b> {{resident.hair_color}}<br/> 
+                        <b>Skin color:</b> {{resident.skin_color}}<br>
+                        <b>Eye color:</b> {{resident.eye_color}}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <h4 class="text_title castom_decorate_title"><i>Films</i></h4>
+        <div class="card_conatiner">
+            <div class="card" style="width: 14rem;" *ngFor="let film of films">
+                <div class="card-body">
+                    <h5 class="card-title text_title">{{film.title}}</h5>
+                    <p class="card-text text_title">
+                        <b><i>Producer: </i></b>{{film.producer}}<br>
+                        <b><i>Director: </i></b>{{film.director}}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

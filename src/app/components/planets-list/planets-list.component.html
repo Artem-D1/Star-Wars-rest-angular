@@ -1,0 +1,21 @@
+<h1 class="page_title">Star Wars Planets</h1>
+<div class="card_conatiner">
+    <div class="card" style="width: 18rem;" *ngFor="let planet of planets">
+        <div class="card-body">
+            <h5 class="card-title text_title">{{planet.name}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">population: {{planet.population}}</h6>
+            <p class="card-text"><b>climate:</b> {{planet.climate}}<br/> 
+                <b>gravity:</b> {{planet.gravity}}<br>
+                <b>terrain:</b> {{planet.terrain}}</p>
+            <a routerLink="/planet/{{planet.name}}" class="card-link" (click)="sendPlanet(planet)">More information</a>
+        </div>
+    </div>
+</div>
+
+<div class="card card_navigation" style="width: 18rem;">
+    <div class="card_conatiner">
+        <button type="button" class="btn btn-outline-warning" *ngIf="planetsInfo?.previous" (click)="showNewPage(planetsInfo.previous)">previous</button>
+        <button type="button" class="btn btn-outline-warning" *ngIf="planetsInfo?.next" (click)="showNewPage(planetsInfo.next)">next</button>
+    </div>
+</div>
+
